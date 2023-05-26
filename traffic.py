@@ -5,13 +5,23 @@
 # Speed:        m/s
 # Acceleration: m/s²
 ######
+class ID:
+    _id = 1
+    id = None
+    def __new__(cls, *args, **kwargs):
+        obj = super().__new__(cls)
+        obj.id = cls._id
+        cls._id += 1
+        return  obj
 
+    def __repr__(self) -> str:
+        return f"<{type(self).__name__}[{self.id}]: ?>"
 
-class Semaphore:
-    def __init__(self, green: int, red: int):
+class Semaphore(ID):
+    def __init__(self, green: int, red: int, status: int = 0):
         # time in seconds
         self.clock = 0
-        self.status = 0 # 0 red, 1 green
+        self.status = status # 0 red, 1 green
         self.red_timer = red
         self.green_timer = green
         self._fn = self.red
@@ -31,37 +41,26 @@ class Semaphore:
         self.clock += time
         return self._fn()
 
-class Road:
-    _id = 0
+class Road(ID):
     car_spacing = 2 # meters
     def __init__(self, semaphore: Semaphore, inverted_semaphore: bool, width: int):
-        self.id = Road._id
-        Road._id+=1
-
         self.semaphore = semaphore
         self.inverted_semaphore = inverted_semaphore
 
         self.cars: list[Car] = [] # Ordered list by distance, by nature
         self.width = width
 
-        self.car_buffer = []
-
     def __str__(self) -> str:
         n = 1
         road = ["-"] * (self.width // n)
         for car in self.cars:
-            road.insert(car.distance_driven // n, 'X')
+            road.insert(car.distance_driven // n, str(car.id))
             road.remove('-')
 
         return str.join('', road)
 
-    def run(self):
-        i = 0
-        cars = self.cars[:]
-        while(i < len(cars)):
-            car = cars[i]
-            car.drive(self, i)
-            i += 1
+    def car_index(self, car: "Car"):
+        return self.cars.index(car)
 
     def semaphore_status(self):
         if self.semaphore == None:
@@ -79,13 +78,12 @@ class Road:
     def leave_road(self, car: "Car"):
         self.cars.remove(car)
     def enter_road(self, car: "Car"):
-        self.car_buffer.append(car)
-    def unbuffer(self):
-        self.cars += self.car_buffer
-        self.car_buffer = []
+        self.cars.append(car)
 
-class Car:
+class Car(ID):
     def __init__(self, path: Road):
+        self.current_road: Road = path.pop(0)
+        self.current_road.enter_road(self)
         self.path: list[Road] = path
         self.distance_driven = 0 # Inside a Road
         self.speed = 0
@@ -96,29 +94,32 @@ class Car:
         self.total_time = 0
         self.done = 0
 
-        self.left_over = 0
+    def __str__(self) -> str:
+        return f"<Car[{self.id}]: roads_left: {len(self.path)}, distance_moved: {self.distance_driven}>"
 
-    def __repr__(self) -> str:
-        return f"<Car: roads_left: {len(self.path)}, distance_moved: {self.distance_driven}>"
-
-    def drive(self, current_road: Road, car_index: int):
+    def drive(self):
         self.total_time += 1
+        self.accelerate()
+        return self._drive(self.speed)
+
+    def _drive(self, amount_to_drive):
+        print(f"Drive({amount_to_drive})",self)
+        current_road = self.current_road
+        car_index = current_road.car_index(self)
         if car_index > 0: # Another car in front of this one
             infront_car = current_road.cars[car_index - 1]
             distance = infront_car.distance_driven - self.distance_driven
-            if distance - Road.car_spacing < self.speed:
+            if distance - Road.car_spacing < amount_to_drive:
                 self.speed = max(distance - Road.car_spacing, 0) ## Move just enough, but don't stop just yet
-                self.move()
+                self.move(self.speed)
             else:
-                self.move()
-                self.accelerate()
+                self.move(amount_to_drive)
         else: # First car
-            if self.distance_driven + self.speed <= current_road.width: # If it moves, it will still be in the same road
-                self.move()
-                self.accelerate()
-            else: # Would cross the road
+            if self.distance_driven + amount_to_drive <= current_road.width: # Even if it moves, it will still be in the same road
+                self.move(amount_to_drive)
+            else: # If it moves, it will cross the road
                 if current_road.semaphore_status() == 0: # Red
-                    self.distance_driven = current_road.width
+                    self.move(current_road.width - self.distance_driven)
                     self.stop()
                 else:
                     if self.path == []:
@@ -129,20 +130,30 @@ class Car:
                     else:
                         next_road = self.path[0]
                         if next_road.available_space():
-                            self.path.pop(0)
                             current_road.leave_road(self)
-                            ## TODO Bug
-                            # Car can offshot on another road and either pass other cars, or not go trough the entire road. The leftover of the bottom equation may be bigger than the road (getting stuck at the end of it instead of passing trough) or smaller and possibly going over cars.
-                            # The problem with solving this are road buffers. It won't take into account other cars that also went trough another road. Taking out the buffer may make cars move twice in one turn
-                            # Maybe make it so you iterate over cars, rather than roads
-                            self.distance_driven = (self.distance_driven + self.speed) - current_road.width
-                            next_road.enter_road(self)            
+                            self.current_road = self.path.pop(0)
+                            self.current_road.enter_road(self)
+                            if amount_to_drive + self.distance_driven >= current_road.width:
+                                print(amount_to_drive, self.distance_driven, current_road.width)
+                                delta = current_road.width - self.distance_driven
+                                self.move(delta)
+                                left_over = amount_to_drive - delta
+                                self.distance_driven = 0
+                                print("Another", end=' ')
+                                return self._drive(left_over)
+                            else:
+                                self.move(amount_to_drive)
+                        else: # Next road full. Wait as far as you can
+                            self.move(current_road.width - self.distance_driven)
+                            self.stop()
 
     def stop(self):
         self.speed = 0
-    def move(self):
-        self.distance_driven += self.speed
-        self.total_distance_travelled += self.speed
+
+    def move(self, amount):
+        print(f"Move({amount})")
+        self.distance_driven += amount
+        self.total_distance_travelled += amount
     def accelerate(self):
         self.speed = min(self.speed+self.acceleration, self.max_speed)
 
