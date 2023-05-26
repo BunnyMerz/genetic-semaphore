@@ -51,11 +51,14 @@ class Road(ID):
         self.width = width
 
     def __str__(self) -> str:
-        n = 1
+        n = 200
         road = ["-"] * (self.width // n)
         for car in self.cars:
             road.insert(car.distance_driven // n, str(car.id))
-            road.remove('-')
+            try:
+                road.remove('-')
+            except:
+                pass
 
         return str.join('', road)
 
@@ -134,12 +137,11 @@ class Car(ID):
                             self.current_road = self.path.pop(0)
                             self.current_road.enter_road(self)
                             if amount_to_drive + self.distance_driven >= current_road.width:
-                                print(amount_to_drive, self.distance_driven, current_road.width)
                                 delta = current_road.width - self.distance_driven
                                 self.move(delta)
                                 left_over = amount_to_drive - delta
                                 self.distance_driven = 0
-                                print("Another", end=' ')
+                                print("*", end='')
                                 return self._drive(left_over)
                             else:
                                 self.move(amount_to_drive)
@@ -151,7 +153,6 @@ class Car(ID):
         self.speed = 0
 
     def move(self, amount):
-        print(f"Move({amount})")
         self.distance_driven += amount
         self.total_distance_travelled += amount
     def accelerate(self):

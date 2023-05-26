@@ -1,20 +1,20 @@
 from traffic import *
 
-s1 = Semaphore(70, 1)
-s2 = Semaphore(70, 1)
+def create_cars(paths, roads):
+    cars = []
+    for path in paths:
+        _roads = path.split(',')
+        cars.append(Car([roads[int(x)] for x in _roads]))
+    return cars
+
+s1 = Semaphore(7, 1)
+s2 = Semaphore(7, 1)
 #     a,    b,    c,    d,    e,    f,    g,    h,    i,    j
 ss = [s1  , s2  , None, s2  , s1  , None, s1  , None, None, s2]
 si = [0, 0, 0, 0, 0, 0, 1, 0, 0, 1]
 
-roads = [Road(ss[x], si[x], 20) for x in range(10)]
-cars = [
-    Car([roads[x % 6] for x in range(140)]),
-    Car([roads[0],roads[1],roads[2]]),
-    Car([roads[3],roads[4],roads[5]]),
-    Car([roads[3],roads[4],roads[5]]),
-    Car([roads[3],roads[4],roads[5]]),
-    Car([roads[3],roads[4],roads[5]]),
-    ]
+roads = [Road(ss[x], si[x], 200) for x in range(10)]
+cars = create_cars(['1,2,3'] * 2, roads)
 
 def print_roads(r: list[Road]):
     print()
