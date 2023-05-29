@@ -21,10 +21,12 @@ class Semaphore(ID):
     def __init__(self, green: int, red: int, status: int = 0):
         # time in seconds
         self.clock = 0
-        self.status = status # 0 red, 1 green
+        self.status = status > 0 # 0 red, 1 green
         self.red_timer = red
         self.green_timer = green
         self._fn = self.red
+    def __repr__(self):
+        return f"<{type(self).__name__}[{self.id}]: ({self.green_timer}|{self.red_timer})>"
 
     def red(self):
         if self.clock > self.red_timer:
@@ -90,7 +92,7 @@ class Car(ID):
         self.path: list[Road] = path
         self.distance_driven = 0 # Inside a Road
         self.speed = 0
-        self.acceleration = 2
+        self.acceleration = 5
         self.max_speed = 40
 
         self.total_distance_travelled = 0
@@ -99,14 +101,16 @@ class Car(ID):
 
     def __str__(self) -> str:
         return f"<Car[{self.id}]: roads_left: {len(self.path)}, distance_moved: {self.distance_driven}>"
-
+    def __repr__(self):
+        return f"<{type(self).__name__}[{self.id}]: ({'|'.join([str(x.id) for x in ([self.current_road]+self.path)])})>"
+      
     def drive(self):
         self.total_time += 1
         self.accelerate()
         return self._drive(self.speed)
 
     def _drive(self, amount_to_drive):
-        print(f"Drive({amount_to_drive})",self)
+        # print(f"Drive({amount_to_drive})",self)
         current_road = self.current_road
         car_index = current_road.car_index(self)
         if car_index > 0: # Another car in front of this one
@@ -141,7 +145,7 @@ class Car(ID):
                                 self.move(delta)
                                 left_over = amount_to_drive - delta
                                 self.distance_driven = 0
-                                print("*", end='')
+                                # print("*", end='')
                                 return self._drive(left_over)
                             else:
                                 self.move(amount_to_drive)
@@ -157,4 +161,3 @@ class Car(ID):
         self.total_distance_travelled += amount
     def accelerate(self):
         self.speed = min(self.speed+self.acceleration, self.max_speed)
-
