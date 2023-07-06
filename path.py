@@ -39,6 +39,9 @@ def generate_car(roads, matrix):
   return Car([roads[x] for x in _path])
 
 def initialize(roads_info, matrix, gene, car_amount):
+  Semaphore._id = 0
+  Car._id = 0
+  Road._id = 0
   sems = [Semaphore(gene[x], gene[x+1], gene[x+2]) for x in range(0, len(gene), 3)]
 
   roads = []

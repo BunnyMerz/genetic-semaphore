@@ -86,6 +86,7 @@ class Road(ID):
         self.cars.append(car)
 
 class Car(ID):
+    cache: list["Car"] = None
     def __init__(self, path: Road):
         self.current_road: Road = path.pop(0)
         self.current_road.enter_road(self)
@@ -93,7 +94,7 @@ class Car(ID):
         self.distance_driven = 0 # Inside a Road
         self.speed = 0
         self.acceleration = 5
-        self.max_speed = 40
+        self.max_speed = 80
 
         self.total_distance_travelled = 0
         self.total_time = 0
@@ -110,7 +111,8 @@ class Car(ID):
         return self._drive(self.speed)
 
     def _drive(self, amount_to_drive):
-        # print(f"Drive({amount_to_drive})",self)
+        # if self.id == 1:
+        #     print(f"Drive({amount_to_drive})",self)
         current_road = self.current_road
         car_index = current_road.car_index(self)
         if car_index > 0: # Another car in front of this one
