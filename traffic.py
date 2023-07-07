@@ -22,8 +22,8 @@ class Semaphore(ID):
         # time in seconds
         self.clock = 0
         self.status = status > 0 # 0 red, 1 green
-        self.red_timer = red
-        self.green_timer = green
+        self.red_timer = max(red,6)
+        self.green_timer = max(green,6)
         self._fn = self.red
     def __repr__(self):
         return f"<{type(self).__name__}[{self.id}]: ({self.green_timer}|{self.red_timer})>"
@@ -93,11 +93,13 @@ class Car(ID):
         self.path: list[Road] = path
         self.distance_driven = 0 # Inside a Road
         self.speed = 0
-        self.acceleration = 5
-        self.max_speed = 80
+        self.acceleration = 8
+        self.max_speed = 60
 
         self.total_distance_travelled = 0
         self.total_time = 0
+        self.wait_time = 0
+        self.times_stopped = 0
         self.done = 0
 
     def __str__(self) -> str:
@@ -129,6 +131,7 @@ class Car(ID):
             else: # If it moves, it will cross the road
                 if current_road.semaphore_status() == 0: # Red
                     self.move(current_road.width - self.distance_driven)
+                    self.wait_time += 1
                     self.stop()
                 else:
                     if self.path == []:
@@ -156,6 +159,8 @@ class Car(ID):
                             self.stop()
 
     def stop(self):
+        if self.speed == 0:
+            self.times_stopped += 1
         self.speed = 0
 
     def move(self, amount):
