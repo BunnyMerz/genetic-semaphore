@@ -1,0 +1,386 @@
+Genes: 40, Cars: 15, Len genes: 40
+s 60
+s 50
+s 44
+s 45
+s 46
+Round 0
+time 0.0
+s 58
+s 45
+s 33
+s 34
+s 56
+s 38
+s 37
+s 32
+s 32
+s 46
+s 35
+s 34
+s 34
+s 34
+s 33
+Opt gene 0
+Opt gene 1
+Opt gene 2
+Opt gene 3
+Opt gene 4
+Opt gene 5
+s 36
+s 32
+s 33
+s 32
+s 32
+s 32
+s 32
+s 33
+s 33
+s 29
+s 32
+s 27
+s 32
+s 32
+s 32
+Round 1
+time 15.72699785232544
+s 33
+s 32
+s 32
+s 32
+s 32
+s 32
+s 31
+s 31
+s 32
+s 32
+s 32
+s 30
+s 32
+s 32
+s 30
+Opt gene 0
+Opt gene 1
+Opt gene 2
+Opt gene 3
+Opt gene 4
+Opt gene 5
+s 31
+s 32
+s 32
+s 32
+s 31
+s 30
+s 32
+s 31
+s 30
+s 30
+s 30
+s 30
+s 30
+s 30
+s 30
+Round 2
+time 31.132004022598267
+s 30
+s 27
+s 28
+s 30
+s 30
+s 30
+s 30
+s 30
+s 30
+s 30
+s 30
+s 28
+s 27
+s 27
+s 27
+Opt gene 0
+Opt gene 1
+Opt gene 2
+Opt gene 3
+Opt gene 4
+Opt gene 5
+s 27
+s 29
+s 27
+s 25
+s 24
+s 27
+s 22
+s 22
+s 20
+s 27
+s 24
+s 26
+s 24
+s 24
+s 24
+Round 3
+time 47.15599870681763
+s 26
+s 26
+s 24
+s 24
+s 24
+s 24
+s 24
+s 24
+s 25
+s 22
+s 24
+s 24
+s 23
+s 24
+s 25
+Opt gene 0
+Opt gene 1
+Opt gene 2
+Opt gene 3
+Opt gene 4
+Opt gene 5
+s 24
+s 24
+s 26
+s 24
+s 24
+s 24
+s 24
+s 25
+s 24
+s 25
+s 24
+s 24
+s 25
+s 24
+s 24
+Round 4
+time 62.143999099731445
+s 24
+s 24
+s 19
+s 24
+s 24
+s 25
+s 24
+s 24
+s 25
+s 24
+s 24
+s 25
+s 24
+s 24
+s 25
+Opt gene 0
+Opt gene 1
+Opt gene 2
+Opt gene 3
+Opt gene 4
+Opt gene 5
+s 24
+s 24
+s 22
+s 24
+s 24
+s 25
+s 23
+s 24
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+Round 5
+time 76.57799673080444
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+Opt gene 0
+Opt gene 1
+Opt gene 2
+Opt gene 3
+Opt gene 4
+Opt gene 5
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+Round 6
+time 91.45899796485901
+s 25
+s 25
+s 25
+s 24
+s 25
+s 25
+s 25
+s 25
+s 23
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+Opt gene 0
+Opt gene 1
+Opt gene 2
+Opt gene 3
+Opt gene 4
+Opt gene 5
+s 25
+s 25
+s 25
+s 24
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 19
+s 25
+s 25
+s 25
+Round 7
+time 107.34499883651733
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 20
+s 24
+s 25
+s 24
+s 23
+s 24
+s 24
+s 25
+s 25
+Opt gene 0
+Opt gene 1
+Opt gene 2
+Opt gene 3
+Opt gene 4
+Opt gene 5
+s 23
+s 23
+s 24
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+Round 8
+time 125.49199724197388
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+Opt gene 0
+Opt gene 1
+Opt gene 2
+Opt gene 3
+Opt gene 4
+Opt gene 5
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 23
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+Round 9
+time 142.35099864006042
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 25
+s 24
+s 24
+Opt gene 0
+Opt gene 1
+Opt gene 2
+Opt gene 3
+Opt gene 4
+Opt gene 5
+s 23
+s 23
+s 25
+s 24
+s 24
+s 24
+s 24
+s 24
+s 24
+s 24
+s 24
+s 23
+s 24
+s 24
+s 25

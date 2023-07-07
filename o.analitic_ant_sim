@@ -1,0 +1,556 @@
+Genes: 40, Cars: 15, Len genes: 40
+s 58
+s 45
+s 46
+s 47
+s 42
+Round 0
+time 0.0
+;
+a 20
+a 6
+a 8
+a 8
+a 0
+a 0
+a 0
+a 0
+a 0
+a 6
+a 0
+a 0
+a 0
+a 0
+a 0
+$
+s 53
+s 53
+s 52
+s 44
+s 35
+s 47
+s 26
+s 31
+s 24
+s 13
+s 15
+s 21
+s 16
+s 17
+s 14
+Opt gene 0
+Opt gene 1
+Opt gene 2
+Opt gene 3
+Opt gene 4
+Opt gene 5
+s 17
+s 20
+s 17
+s 20
+s 16
+s 16
+s 17
+s 17
+s 16
+s 17
+s 16
+s 21
+s 21
+s 21
+s 21
+Round 1
+time 20.567003965377808
+;
+a 8
+a 0
+a 9
+a 0
+a 14
+a 9
+a 9
+a 14
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+$
+s 21
+s 25
+s 18
+s 16
+s 16
+s 16
+s 16
+s 16
+s 15
+s 16
+s 16
+s 16
+s 16
+s 16
+s 16
+Opt gene 0
+Opt gene 1
+Opt gene 2
+Opt gene 3
+Opt gene 4
+Opt gene 5
+s 13
+s 12
+s 14
+s 12
+s 13
+s 16
+s 14
+s 16
+s 15
+s 15
+s 16
+s 14
+s 14
+s 14
+s 14
+Round 2
+time 38.49000597000122
+;
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+$
+s 16
+s 16
+s 16
+s 16
+s 16
+s 16
+s 16
+s 16
+s 16
+s 15
+s 16
+s 16
+s 16
+s 16
+s 15
+Opt gene 0
+Opt gene 1
+Opt gene 2
+Opt gene 3
+Opt gene 4
+Opt gene 5
+s 14
+s 16
+s 12
+s 16
+s 16
+s 16
+s 16
+s 15
+s 16
+s 16
+s 16
+s 16
+s 16
+s 16
+s 16
+Round 3
+time 56.51600408554077
+;
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+$
+s 16
+s 16
+s 14
+s 16
+s 16
+s 16
+s 15
+s 16
+s 16
+s 15
+s 16
+s 16
+s 16
+s 16
+s 13
+Opt gene 0
+Opt gene 1
+Opt gene 2
+Opt gene 3
+Opt gene 4
+Opt gene 5
+s 16
+s 16
+s 15
+s 16
+s 16
+s 16
+s 16
+s 16
+s 11
+s 16
+s 13
+s 13
+s 16
+s 16
+s 15
+Round 4
+time 74.98899865150452
+;
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+$
+s 35
+s 15
+s 12
+s 12
+s 12
+s 12
+s 15
+s 12
+s 12
+s 12
+s 12
+s 12
+s 12
+s 12
+s 12
+Opt gene 0
+Opt gene 1
+Opt gene 2
+Opt gene 3
+Opt gene 4
+Opt gene 5
+s 12
+s 12
+s 12
+s 12
+s 11
+s 10
+s 9
+s 8
+s 9
+s 7
+s 8
+s 6
+s 7
+s 6
+s 5
+Round 5
+time 93.5320041179657
+;
+a 54
+a 9
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+$
+s 7
+s 9
+s 6
+s 6
+s 6
+s 6
+s 6
+s 6
+s 6
+s 6
+s 6
+s 6
+s 6
+s 6
+s 6
+Opt gene 0
+Opt gene 1
+Opt gene 2
+Opt gene 3
+Opt gene 4
+Opt gene 5
+s 6
+s 6
+s 4
+s 6
+s 4
+s 6
+s 6
+s 4
+s 5
+s 4
+s 4
+s 2
+s 5
+s 2
+s 4
+Round 6
+time 111.743004322052
+;
+a 132
+a 161
+a 155
+a 123
+a 128
+a 87
+a 43
+a 46
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+a 0
+$
+s 6
+s 6
+s 6
+s 6
+s 6
+s 6
+s 6
+s 5
+s 6
+s 6
+s 6
+s 6
+s 6
+s 6
+s 6
+Opt gene 0
+Opt gene 1
+Opt gene 2
+Opt gene 3
+Opt gene 4
+Opt gene 5
+s 6
+s 6
+s 6
+s 5
+s 5
+s 5
+s 6
+s 6
+s 6
+s 6
+s 6
+s 6
+s 3
+s 4
+s 4
+Round 7
+time 129.64802050590515
+;
+a 28
+a 42
+a 40
+a 24
+a 12
+a 16
+a 24
+a 18
+a 13
+a 11
+a 8
+a 14
+a 0
+a 0
+a 4
+$
+s 6
+s 7
+s 11
+s 6
+s 5
+s 3
+s 7
+s 6
+s 6
+s 3
+s 6
+s 4
+s 4
+s 3
+s 2
+Opt gene 0
+Opt gene 1
+Opt gene 2
+Opt gene 3
+Opt gene 4
+Opt gene 5
+s 2
+s 2
+s 2
+s 3
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+Round 8
+time 147.2090048789978
+;
+a 114
+a 84
+a 100
+a 90
+a 87
+a 92
+a 42
+a 62
+a 31
+a 7
+a 3
+a 7
+a 3
+a 0
+a 0
+$
+s 7
+s 2
+s 6
+s 5
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+Opt gene 0
+Opt gene 1
+Opt gene 2
+Opt gene 3
+Opt gene 4
+Opt gene 5
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+Round 9
+time 164.73300409317017
+;
+a 65
+a 52
+a 38
+a 55
+a 21
+a 26
+a 17
+a 14
+a 17
+a 21
+a 7
+a 3
+a 9
+a 7
+a 7
+$
+s 8
+s 3
+s 2
+s 2
+s 4
+s 2
+s 2
+s 4
+s 3
+s 2
+s 2
+s 2
+s 4
+s 2
+s 2
+Opt gene 0
+Opt gene 1
+Opt gene 2
+Opt gene 3
+Opt gene 4
+Opt gene 5
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
+s 2
