@@ -1,6 +1,6 @@
-from genes import *
+from genes import run, initialize
 from random import randint as rng
-from test import *
+from rotat import *
 from path import *
 
 
@@ -177,16 +177,16 @@ def ant_colony(gene, _rounds, neigh_amount, cars_amount, ants_amount, ants_max_s
     #     print("]")
 
 def ant_optimization(gene, cars_amount):
-    _rounds = 3
-    neigh_amount = 6
+    _rounds = 4
+    neigh_amount = 5
 
-    ants_amount = 5
-    ants_max_step = 10
-    iterations = 20
+    ants_amount = 10
+    ants_max_step = 20
+    iterations = 10
     best_gene = ant_colony(gene, _rounds, neigh_amount, cars_amount, ants_amount, ants_max_step, iterations)
     return best_gene
 
 
-gene = [rng(6,60) if x != 3 else rng(0,1) for x in range(num_sem * 3)]
-better_gene = ant_optimization(gene, 10)
-print(better_gene)
+# gene = [rng(6,60) if x != 3 else rng(0,1) for x in range(num_sem * 3)]
+# better_gene = ant_optimization(gene, 10)
+# print(better_gene)

@@ -17,7 +17,7 @@ def run(roads: list[Road], cars: list[Car], sems: list[Semaphore]):
     if cars == []:
       break
 
-def an_run(cars: list[Car]):
+def an_run(_, cars: list[Car], __):
     # print("//")
     k = 0
     tw = 0
@@ -187,7 +187,7 @@ def iterate(genes, _rounds, roads_info, matrix, cars_amount, _type, initializing
         if "real" in _type:
           run(roads, cars, sems)
         if "test" in _type:
-          an_run(cars)
+          an_run(None, cars, None)
         # print(end=', ')
         s = 0
         avg_speed = 0
